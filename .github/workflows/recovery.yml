@@ -23,7 +23,7 @@ jobs:
       run: |
         ls
         pwd
-        wget $RECOVERY_URL
+        wget -O recovery.img $RECOVERY_URL
 
     - name: Patch Process-1
       run: |
