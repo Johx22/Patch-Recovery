@@ -1,8 +1,12 @@
 name: RECOVERY
 
 on:
-  watch:
-    types: [started]
+  workflow_dispatch:
+    inputs:
+      RECOVERY_URL:
+        description: 'RECOVERY URL'
+        required: true
+        default: 'https://www.filesend.jp/l/en-US/'
 
 env:
   RECOVERY_URL: https://oshi.at/Rpjg
