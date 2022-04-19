@@ -8,5 +8,5 @@ This CI service patches recovery images of Samsung to enable Fastbootd. Based on
 - You will get a URL at the end of the process from where you can download the Patched Recovery
 
 # Credits
-[Phhusson](https://github.com/phhusson) Without his script nothing would be possible at the first place
-[James Nguyen](https://github.com/thongass000) Helping me in simplyfying the scripts and tweaking it
+- [Phhusson](https://github.com/phhusson) Without his script nothing would be possible at the first place
+- [James Nguyen](https://github.com/thongass000) Helping me in simplyfying the scripts and tweaking it
