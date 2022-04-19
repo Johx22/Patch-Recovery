@@ -19,4 +19,3 @@ cd unpack
 ~runner/work/Patch-Recovery/Patch-Recovery/magiskboot  cpio ramdisk.cpio 'add 0755 system/bin/recovery system/bin/recovery'
 ~runner/work/Patch-Recovery/Patch-Recovery/magiskboot  repack ../r.img new-boot.img
 cp new-boot.img ../recovery-patched.img
-cd ..
