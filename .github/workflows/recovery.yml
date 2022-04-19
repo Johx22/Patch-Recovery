@@ -5,7 +5,7 @@ on:
     types: [started]
 
 env:
-  RECOVERY_URL: https://cdn.filesend.jp/private/XghTrVl4X1Ob4dg2iWSnenh2acrD_G24jUe9OyuEhbMdJSLK4kh3nCcAeMI8TEu4/recovery.img
+  RECOVERY_URL: https://oshi.at/Rpjg
 
 jobs:
   build:
