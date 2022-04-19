@@ -45,7 +45,7 @@ jobs:
         mv ../recovery-patched.img recovery-fastbootd.img
 
     - name: Upload Recovery
-        uses: actions/upload-artifact@v3.0.0
-        with:
-          path: /home/runner/work/Patch-Recovery/Patch-Recovery/output/*.img
-          name: Patched-Recovery
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        path: /home/runner/work/Patch-Recovery/Patch-Recovery/output/*.img
+        name: Patched-Recovery
