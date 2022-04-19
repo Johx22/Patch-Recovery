@@ -1,0 +1,47 @@
+name: RECOVERY
+
+on:
+  watch:
+    types: [started]
+
+env:
+  RECOVERY_URL: https://cdn.filesend.jp/private/XghTrVl4X1Ob4dg2iWSnenh2acrD_G24jUe9OyuEhbMdJSLK4kh3nCcAeMI8TEu4/recovery.img
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check Out
+      uses: actions/checkout@main
+
+    - name: Prepare the environment
+      run: |
+        sudo apt install git wget lz4 tar openssl python3 -y
+
+    - name: Fetch image from URL
+      run: |
+        ls
+        pwd
+        wget $RECOVERY_URL
+
+    - name: Patch Process-1
+      run: |
+        chmod a+x script1.sh
+        chmod a+x magiskboot
+        ./script1.sh || true
+
+    - name: Patch Process-2
+      run: |
+        chmod a+x script2.sh
+        ./script2.sh || true
+        python3 avbtool extract_public_key --key phh.pem --output phh.pub.bin
+        python3 avbtool add_hash_footer --partition_name recovery --partition_size $(wc -c r.img |cut -f 1 -d ' ') --image r.img --key phh.pem --algorithm SHA256_RSA4096
+        cd unpack
+        mv ../recovery-patched.img recovery-fastbootd.img
+
+    - name: Uploading files
+      run: |
+        cd unpack
+        curl --upload-file recovery-fastbootd.img https://transfer.sh/recovery.img
+        echo -e "\nClick the above link and download your recovery"
