@@ -6,6 +6,7 @@ This CI service patches recovery images of Samsung to enable Fastbootd. Based on
 - Head over to Actions tab. Click on RECOVERY and then Run workflow. Insert the copied URL in the RECOVERY URL field and Start the workflow
 - The Patching process will start
 - A Patched-Recovery.zip will be uploaded at the end of the process. Download it and extract your patched recovery image
+![](https://s3.bmp.ovh/imgs/2022/04/19/91ef3a3ee9255e9c.png)
 
 # Credits
 - [Phhusson](https://github.com/phhusson) Without his script nothing would be possible at the first place
