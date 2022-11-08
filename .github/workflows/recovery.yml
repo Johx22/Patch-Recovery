@@ -48,5 +48,5 @@ jobs:
     - name: Upload Recovery
       uses: actions/upload-artifact@v3.0.0
       with:
-        path: /home/runner/work/Patch-Recovery/Patch-Recovery/output/*.tar
-        name: Patched-Recovery
+        path: /home/runner/work/recovery/recovery/output/*.tar
+        name: recovery-fastboot
