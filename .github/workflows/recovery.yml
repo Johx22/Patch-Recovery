@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       RECOVERY_URL:
-        description: 'RECOVERY URL'
+        description: https://transfer.sh/get/3KwJlD/recovery.img.lz4
         required: true
         default: 'https://transfer.sh/(RECOMMENDED)'
 
