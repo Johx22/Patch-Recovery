@@ -8,6 +8,7 @@ This CI service patches recovery images of Samsung to enable Fastbootd. Based on
 - The Patching process will start
 - A Patched-Recovery.zip will be uploaded at the end of the process. Download it and extract your patched recovery image. The Image will already also be repacked to .tar for flashing directly through Odin
 ![](https://s3.bmp.ovh/imgs/2022/04/19/91ef3a3ee9255e9c.png)
+- Flash vbmeta_disabled_r if needed
 
 # Credits
 - [Phhusson](https://github.com/phhusson) Without his script nothing would be possible at the first place
