@@ -1,0 +1,6 @@
+# Files
+*.img
+*.exe
+
+# Folders
+.idea
