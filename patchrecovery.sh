@@ -15,12 +15,9 @@ else
   exit 1
 fi
 
-if ! [ -e magiskboot ]; then  # Downloading Magiskboot directly from Github.
+if ! [ -e magiskboot ]; then  # Downloads Magiskboot directly from Github.
     echo "Download magiskboot..."
-    curl -s https://api.github.com/repos/topjohnwu/Magisk/releases/latest | grep "browser_download_url" | cut -d : -f 2,3 | tr -d \" | wget -qi -
-    unzip -joq Magisk*.apk lib/x86_64/libmagiskboot.so
-    mv libmagiskboot.so magiskboot
-    rm -rf Magisk*.apk
+    curl -kOL https://github.com/Johx22/Patch-Recovery/raw/master/magiskboot
 fi
 
 ##################
@@ -50,7 +47,7 @@ fi
 mkdir temp
 cd temp || exit 1
 
-../magiskboot unpack ../temp.img
+../magiskboot unpack ../recovery.img
 ../magiskboot cpio ramdisk.cpio extract
 ../magiskboot hexpatch system/bin/recovery e10313aaf40300aa6ecc009420010034 e10313aaf40300aa6ecc0094
 ../magiskboot hexpatch system/bin/recovery eec3009420010034 eec3009420010035
@@ -66,10 +63,10 @@ cd temp || exit 1
 ../magiskboot hexpatch system/bin/recovery b4f082ee28b1701c b4f082ee28b970c1
 ../magiskboot hexpatch system/bin/recovery 9ef0f4ec28b1701c 9ef0f4ec28b9701c
 ../magiskboot cpio ramdisk.cpio 'add 0755 system/bin/recovery system/bin/recovery'
-../magiskboot repack ../temp.img ../recovery-patched.img
+../magiskboot repack ../recovery.img ../recovery-patched.img
 
 cd .. || exit 1
-rm -rf temp temp.img
+rm -rf temp
 
 ###########
 # Zipping #

@@ -38,7 +38,8 @@ if exist recovery.img.lz4 (
 
 if not exist recovery.img (
 	echo No file found, please supply a recovery image to patch.
-    exit \b
+	pause >NUL 2>&1
+    exit /b
 )
 
 ::::::::::::::
