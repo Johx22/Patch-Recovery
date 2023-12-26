@@ -6,14 +6,6 @@ setlocal
 :: Dependencies ::
 ::::::::::::::::::
 
-if not exist lz4.exe (
-    echo Downloading lz4...
-    for /f "tokens=1,* delims=:" %%a in ('curl -s https://api.github.com/repos/lz4/lz4/releases/latest ^| find "browser_download_url" ^| find "lz4_win64"') do (curl -kOL %%b)
-    ren lz4* lz4.zip
-    tar -xf lz4.zip lz4.exe
-    del lz4.zip
-)
-
 if not exist magiskboot.exe (
     echo Downloading magiskboot...
     for /f "tokens=1,* delims=:" %%a in ('curl -ks https://api.github.com/repos/svoboda18/magiskboot/releases/latest ^| find "browser_download_url" ^| find "magiskboot.zip"') do (curl -kOL %%b)
@@ -32,8 +24,7 @@ ren *.img recovery.img >NUL 2>&1
 
 if exist recovery.img.lz4 (
     echo Decompressing the lz4 image...
-    lz4 -B6 --content-size -f recovery.img.lz4 recovery.img
-    del recovery.img.lz4
+    magiskboot decompress recovery.img.lz4
 )
 
 if not exist recovery.img (

@@ -21,7 +21,7 @@ jobs:
 
     - name: Prepare the environment
       run: |
-        sudo apt install git wget lz4 tar openssl python3 -y
+        sudo apt install git wget tar openssl python3 -y
 
     - name: Fetch image from URL
       run: |

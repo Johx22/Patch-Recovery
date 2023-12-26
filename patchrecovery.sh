@@ -7,9 +7,9 @@
 echo "Checking for dependencies..."
 
 if [ -e "/etc/debian_version" ]; then  # Checking to determine the linux distro.
-  sudo apt install curl unzip tar lz4 -y &>/dev/null
+  sudo apt install curl unzip tar -y &>/dev/null
 elif [ -e "/etc/arch-release" ]; then
-  sudo pacman -Syu curl unzip tar lz4 &>/dev/null
+  sudo pacman -Syu curl unzip tar &>/dev/null
 else
   echo "No available package manager found, this program cannot run on your computer."
   exit 1
@@ -26,13 +26,12 @@ fi
 
 rm -rf patched-recovery.tar  # Deleting the old patched recovery if exists.
 
-mv *.img.lz4 recovery.img.lz4 &>/dev/null  # Renames the lz4 file if found.
-mv *.img recovery.img &>/dev/null  # Renames the img file if found.
+mv -- *.img.lz4 recovery.img.lz4 &>/dev/null  # Renames the lz4 file if found.
+mv -- *.img recovery.img &>/dev/null  # Renames the img file if found.
 
 if [ -e recovery.img.lz4 ];then  # Decompresses the recovery file if in lz4 format.
   echo "Decompressing the lz4 image..."
-	lz4 -B6 --content-size -f recovery.img.lz4 recovery.img
-	rm -rf recovery.img.lz4
+	./magiskboot decompress recovery.img.lz4
 fi
 
 if ! [ -e recovery.img ]; then  # Checking for the existence of the file passed as an argument.
