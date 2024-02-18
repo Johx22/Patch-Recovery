@@ -1,5 +1,5 @@
 # Similar script
-You can also refer [repo](https://github.com/engineer4t/fastboot-patcher)
+You can also refer this [script](https://github.com/engineer4t/fastboot-patcher)
 
 
 # Patch-Recovery
