@@ -1,5 +1,5 @@
-# (No longer maintained)
-Please head over to this [repo](https://github.com/engineer4t/fastboot-patcher)
+# Similar script
+You can also refer [repo](https://github.com/engineer4t/fastboot-patcher)
 
 
 # Patch-Recovery
