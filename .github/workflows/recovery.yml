@@ -3,13 +3,12 @@ name: RECOVERY
 on:
   workflow_dispatch:
     inputs:
-      RECOVERY_URL:
-        description: 'RECOVERY URL'
-        required: true
-        default: 'https://transfer.sh/(RECOMMENDED)'
+      RECOVERY_URL:https://we.tl/t-1Gkyk7ZlY8
+        description:RECOVERY
+        required:true
+        default:https://we.tl/t-1Gkyk7ZlY8
 
-env:
-  RECOVERY_URL: https://oshi.at/Rpjg
+env:RECOVERY_URL:https://we.tl/t-1Gkyk7ZlY8
 
 jobs:
   build:
