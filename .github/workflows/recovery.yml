@@ -6,7 +6,7 @@ on:
       RECOVERY_URL:
         description: 'RECOVERY URL'
         required: true
-        default: 'https://transfer.sh/(RECOMMENDED)'
+        default: 'https://anonsharing.com/(TEMPORARY)'
 
 env:
   RECOVERY_URL: https://oshi.at/Rpjg
