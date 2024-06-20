@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ -f pwsuov.lz4 ];then
-	lz4 -B6 --content-size -f pwsuov.lz4 recovery.img
+if [ -f recovery.img.lz4 ];then
+	lz4 -B6 --content-size -f recovery.img.lz4 recovery.img
 fi
 
 off=$(grep -ab -o SEANDROIDENFORCE recovery.img |tail -n 1 |cut -d : -f 1)
