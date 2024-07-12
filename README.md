@@ -10,6 +10,11 @@ This CI service patches recovery images of Samsung to enable Fastbootd. Based on
 ![](https://s3.bmp.ovh/imgs/2022/04/19/91ef3a3ee9255e9c.png)
 - Flash vbmeta_disabled_r if needed
 
+```
+ODIN AP Slot: Recovery.tar.md5
+ODIN User Slot: vbmeta_disabled_r.tar
+```
+
 # Important note
 - Make sure that the uploaded file can downloaded with wget command and will download a correct file. Nextcloud with public link works fine if you open the link on web and copy the url from the download button.
 
