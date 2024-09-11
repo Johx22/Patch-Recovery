@@ -1,7 +1,7 @@
 name: RECOVERY
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: .
     inputs:
       RECOVERY_URL:
         description: 'RECOVERY URL'
