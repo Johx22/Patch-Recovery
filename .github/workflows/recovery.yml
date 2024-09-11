@@ -2,7 +2,7 @@ name: RECOVERY
 
 on:
   workflow_dispatch:
-    inputs:
+    inputs: 'github/workflows/recovery.yml'
       RECOVERY_URL: 'https://transfer.sh/%28Could%20not%20save%20metadata%29.tar.gz'
         description: 'RECOVERY URL'
         required: true
