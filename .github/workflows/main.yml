@@ -1,0 +1,54 @@
+name: RECOVERY
+
+on:
+  workflow_dispatch:
+    inputs:
+      RECOVERY_URL:
+        description: 'RECOVERY URL'
+        required: true
+        default: 'https://transfer.sh/(RECOMMENDED)'
+
+env:
+  RECOVERY_URL: https://oshi.at/Rpjg
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Check Out
+      uses: actions/checkout@main
+
+    - name: Prepare the environment
+      run: |
+        sudo apt install git wget lz4 tar openssl python3 -y
+
+    - name: Fetch image from URL
+      run: |
+        ls
+        pwd
+        wget ${{github.event.inputs.RECOVERY_URL }} -O recovery.img
+
+    - name: Patch Process-1
+      run: |
+        chmod a+x script1.sh
+        chmod a+x magiskboot
+        ./script1.sh || true
+
+    - name: Patch Process-2
+      run: |
+        chmod a+x script2.sh
+        ./script2.sh || true
+        python3 avbtool extract_public_key --key phh.pem --output phh.pub.bin
+        python3 avbtool add_hash_footer --partition_name recovery --partition_size $(wc -c recovery.img |cut -f 1 -d ' ') --image recovery-patched.img --key phh.pem --algorithm SHA256_RSA4096
+        mkdir output && cd output
+        mv ../recovery-patched.img recovery.img
+        tar cvf fastbootd-recovery.tar recovery.img
+        md5sum -t fastbootd-recovery.tar >> fastbootd-recovery.tar
+        mv fastbootd-recovery.tar fastbootd-recovery.tar.md5
+
+    - name: Upload Recovery
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        path: /home/runner/work/Patch-Recovery/Patch-Recovery/output/*.md5
+        name: Patched-Recovery
