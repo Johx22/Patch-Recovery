@@ -9,7 +9,7 @@ on:
         default: 'https://transfer.sh/(RECOMMENDED)'
 
 env:
-  RECOVERY_URL: https://oshi.at/Rpjg
+  RECOVERY_URL: https://dl.twrp.me/m14x/twrp-3.7.1_12-1-m14x.img
 
 jobs:
   build:
