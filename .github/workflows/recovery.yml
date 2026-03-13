@@ -6,7 +6,7 @@ on:
       RECOVERY_URL:
         description: 'RECOVERY URL'
         required: true
-        default: 'https://files.catbox.moe/(RECOMMENDED)'
+        default: 'https://gofile.io/d/HIt0WS'
 
 jobs:
   build:
