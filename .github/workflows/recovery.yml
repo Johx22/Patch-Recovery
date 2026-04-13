@@ -7,6 +7,8 @@ on:
         description: 'RECOVERY URL'
         required: true
         default: 'https://files.catbox.moe/(RECOMMENDED)'
+     env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build:
